@@ -19,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       //int myScore = getScore();
-       // display(myScore);
+     
         Button saveScore = (Button)findViewById(R.id.submit);
         saveScore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,18 +35,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-//    public void score(View v ){
-//        EditText yName = (EditText) findViewById(R.id.name);
-//        String userName = yName.getText().toString();
-//        int myScore = Question1() + Question2() + Question3()+ Question4();
-//        TextView quantityTextView = (TextView) findViewById(R.id.score);
-//        scoreInfo = userName + " Your score is " + myScore+ "%";
-//
-//       // Intent intent = new Intent(this,Score.class);
-//        //intent.putExtra(Message_KEY, scoreInfo);
-//        //startActivity(intent);
-//     // display(myScore);
-//    }
+
     public int Question1(){
         RadioButton answer1 = (RadioButton)findViewById(R.id.Mary);
 
@@ -94,11 +82,6 @@ else {
         }
         return score;
     }
-//    private void display(int score) {
-//        EditText yName = (EditText) findViewById(R.id.name);
-//        String userName = yName.getText().toString();
-//        TextView quantityTextView = (TextView) findViewById(R.id.score);
-//        quantityTextView.setText(userName + " Your score is " + score+ "%");
-//    }
+
 }
 
