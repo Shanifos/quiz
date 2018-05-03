@@ -3,12 +3,13 @@ package com.example.android.myquiz;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
     public final static String Message_KEY = "com.example.android.myquiz.message.key";
@@ -16,24 +17,32 @@ public class MainActivity extends AppCompatActivity {
     String scoreInfo;
     int score= 0;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-     
         Button saveScore = (Button)findViewById(R.id.submit);
-        saveScore.setOnClickListener(new View.OnClickListener() {
+
+        saveScore.setOnClickListener(new View.OnClickListener(){
             @Override
+
             public void onClick(View v) {
                 EditText yName = (EditText) findViewById(R.id.name);
                 String userName = yName.getText().toString();
-                int myScore = Question1() + Question2() + Question3()+ Question4();
-                //TextView quantityTextView = (TextView) findViewById(R.id.score);
-                scoreInfo = userName + " Your score is " + myScore+ "%";
-                Intent intent = new Intent(MainActivity.this,Score.class);
-                intent.putExtra("score", scoreInfo);
-                startActivity(intent);
-            }
-        });
+
+                    if( TextUtils.isEmpty(userName)){
+                        yName.setError( "First name is required!" );
+
+                    }
+                    else{
+                        int myScore = Question1() + Question2() + Question3()+ Question4();
+                        scoreInfo = userName + " Your score is " + myScore+ "%";
+                        Intent intent = new Intent(MainActivity.this,Score.class);
+                        intent.putExtra("score", scoreInfo);
+                        startActivity(intent);
+                    }
+                }//End of onClick(View V)
+        });//End of setOnClickListener
     }
 
     public int Question1(){
@@ -42,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         if(answer1.isChecked()){
           score = 25;
         }
-else {
+        else {
             score=0;
         }
         return score;
@@ -50,7 +59,6 @@ else {
     public int Question2(){
         CheckBox answer2 = (CheckBox) findViewById(R.id.Jack);
         CheckBox answer3 = (CheckBox) findViewById(R.id.Jill);
-
 
         if(answer2.isChecked() && answer3.isChecked()){
             score = 25;
@@ -82,6 +90,6 @@ else {
         }
         return score;
     }
-
 }
+
 

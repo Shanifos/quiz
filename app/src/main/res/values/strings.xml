@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">My Quiz</string>
     <string name="title_activity_score">Score</string>
+    <string name="furniture">4) What furniture fell out of the tree?</string>
+    <string name="the_hill">2) Who went up the hill</string>
+    <string name="lamb_school">1)Who went to school with a lamb?</string>
+    <string name="what_is_your_name">What is your name?</string>
+    <string name="jimmy_crack">3) What did Jimmy crack?</string>
 </resources>
